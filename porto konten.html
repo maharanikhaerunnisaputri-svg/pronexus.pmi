@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Konten Reels Fashion — Portofolio Pronexus PMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-900: #060f2a;
+      --blue-800: #0a1f4e;
+      --blue-600: #1a4480;
+      --blue-500: #1e5baa;
+      --blue-400: #2d6ecf;
+      --blue-200: #7ab8f5;
+      --blue-100: #c8e0fb;
+      --blue-50:  #eef5ff;
+      --accent:   #3a87e0;
+      --white:    #ffffff;
+      --gray-50:  #f7f9fc;
+      --gray-100: #eef1f7;
+      --gray-200: #d8dfe8;
+      --gray-400: #8a9ab5;
+      --gray-600: #4a5568;
+      --gray-800: #1a2233;
+      --font-d: 'Poppins', sans-serif;
+      --font-b: 'DM Sans', sans-serif;
+      --radius: 16px;
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-b);
+      background: var(--white);
+      color: var(--gray-800);
+      line-height: 1.65;
+    }
+    a { text-decoration: none; color: inherit; }
+    img, video { display: block; max-width: 100%; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; height: 68px;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--gray-100);
+      z-index: 100;
+      display: flex; align-items: center;
+      padding: 0 32px;
+      gap: 16px;
+    }
+    .nav-back {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--gray-600); font-size: .88rem; font-weight: 500;
+      padding: 8px 16px; border-radius: 50px;
+      border: 1.5px solid var(--gray-200);
+      transition: var(--transition);
+    }
+    .nav-back:hover { border-color: var(--blue-400); color: var(--blue-500); background: var(--blue-50); }
+    .nav-brand {
+      font-family: var(--font-d); font-weight: 700; font-size: 1rem;
+      color: var(--blue-800); margin-left: auto;
+    }
+    .nav-brand em { font-style: normal; color: var(--blue-400); }
+
+    /* ── HERO BANNER ── */
+    .hero-banner {
+      margin-top: 68px;
+      height: 480px;
+      position: relative;
+      overflow: hidden;
+      background: var(--blue-900);
+    }
+    .hero-banner img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.55;
+      transition: transform 6s ease;
+    }
+    .hero-banner:hover img { transform: scale(1.04); }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(6,15,42,.92) 0%, rgba(6,15,42,.3) 60%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 48px 56px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+      color: var(--blue-100); font-size: .75rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 50px;
+      margin-bottom: 16px; width: fit-content;
+      backdrop-filter: blur(8px);
+    }
+    .hero-title {
+      font-family: var(--font-d); font-size: clamp(1.8rem,4vw,3rem);
+      font-weight: 800; color: var(--white); line-height: 1.15;
+      max-width: 700px; margin-bottom: 16px;
+    }
+    .hero-meta {
+      display: flex; gap: 24px; flex-wrap: wrap;
+    }
+    .meta-item {
+      display: flex; align-items: center; gap: 7px;
+      color: var(--blue-200); font-size: .82rem;
+    }
+    .meta-item span { font-size: 1rem; }
+
+    /* ── LAYOUT UTAMA ── */
+    .page-wrap {
+      max-width: 1100px; margin: 0 auto;
+      padding: 56px 32px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: var(--font-d); font-size: .72rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--blue-400); margin-bottom: 16px;
+    }
+
+    /* ── GALERI VIDEO (grid reels) ── */
+    .reels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .reel-item {
+      border-radius: 14px; overflow: hidden;
+      background: var(--blue-900);
+      aspect-ratio: 9/16;
+      position: relative; cursor: pointer;
+    }
+    .reel-item video {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+    }
+    .reel-item img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .reel-play {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(6,15,42,.3);
+      font-size: 2.5rem;
+      opacity: 0; transition: var(--transition);
+    }
+    .reel-item:hover .reel-play { opacity: 1; }
+    .reel-label {
+      position: absolute; bottom: 10px; left: 10px; right: 10px;
+      background: rgba(6,15,42,.75); color: var(--blue-100);
+      font-size: .7rem; font-weight: 600; padding: 5px 10px;
+      border-radius: 8px; backdrop-filter: blur(6px);
+      text-align: center;
+    }
+
+    /* ── VIDEO UTAMA ── */
+    .video-wrap {
+      border-radius: var(--radius); overflow: hidden;
+      background: var(--blue-900); margin-bottom: 40px;
+      position: relative;
+    }
+    .video-wrap video {
+      width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover;
+    }
+    .video-label {
+      position: absolute; top: 14px; left: 14px;
+      background: rgba(6,15,42,.75); color: var(--blue-100);
+      font-size: .72rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; padding: 5px 12px; border-radius: 50px;
+      backdrop-filter: blur(6px);
+    }
+
+    /* ── GALERI FOTO (thumbnail) ── */
+    .gallery-thumbs {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+      margin-bottom: 40px;
+    }
+    .thumb {
+      border-radius: 10px; overflow: hidden; cursor: pointer;
+      border: 2px solid transparent; transition: var(--transition);
+      background: var(--gray-100); aspect-ratio: 1;
+    }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .thumb.active { border-color: var(--blue-400); }
+    .thumb:hover { border-color: var(--blue-300); }
+
+    /* ── DESKRIPSI ── */
+    .desc-block { margin-bottom: 40px; }
+    .desc-block h2 {
+      font-family: var(--font-d); font-size: 1.5rem; font-weight: 700;
+      color: var(--blue-800); margin-bottom: 14px; line-height: 1.3;
+    }
+    .desc-block p {
+      color: var(--gray-600); font-size: .97rem; line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .desc-block p:last-child { margin-bottom: 0; }
+
+    /* ── HASIL ── */
+    .results-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 14px;
+      margin: 32px 0;
+    }
+    .result-card {
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+      border-radius: 14px; padding: 22px 18px; text-align: center;
+    }
+    .result-val {
+      font-family: var(--font-d); font-size: 1.9rem; font-weight: 800;
+      color: var(--white); display: block; margin-bottom: 4px;
+    }
+    .result-lbl { color: var(--blue-200); font-size: .78rem; }
+
+    /* ── PROSES ── */
+    .process-list {
+      list-style: none; display: flex; flex-direction: column; gap: 16px;
+      margin-bottom: 40px;
+    }
+    .process-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 18px 20px; background: var(--gray-50);
+      border-radius: 14px; border: 1px solid var(--gray-100);
+    }
+    .process-num {
+      width: 32px; height: 32px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--blue-500), var(--blue-400));
+      color: var(--white); font-family: var(--font-d); font-weight: 700;
+      font-size: .82rem; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .process-text strong {
+      display: block; color: var(--blue-800); font-weight: 600;
+      font-size: .92rem; margin-bottom: 3px;
+    }
+    .process-text p { color: var(--gray-600); font-size: .85rem; margin: 0; }
+
+    /* ── SIDEBAR ── */
+    .sidebar { position: sticky; top: 88px; }
+
+    .info-card {
+      background: var(--white); border: 1.5px solid var(--gray-100);
+      border-radius: var(--radius); padding: 28px;
+      box-shadow: 0 4px 20px rgba(13,47,99,.07);
+      margin-bottom: 20px;
+    }
+    .info-card h4 {
+      font-family: var(--font-d); font-weight: 700; font-size: 1rem;
+      color: var(--blue-800); margin-bottom: 20px;
+      padding-bottom: 14px; border-bottom: 1px solid var(--gray-100);
+    }
+    .info-row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--gray-50);
+      font-size: .88rem;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-key { color: var(--gray-400); font-weight: 500; flex-shrink: 0; }
+    .info-val { color: var(--blue-800); font-weight: 600; text-align: right; }
+
+    .tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
+    .tag {
+      background: var(--blue-50); color: var(--blue-500);
+      font-size: .75rem; font-weight: 600; padding: 5px 12px;
+      border-radius: 50px; border: 1px solid var(--blue-100);
+    }
+
+    .cta-card {
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-500));
+      border-radius: var(--radius); padding: 28px; text-align: center;
+    }
+    .cta-card h4 {
+      font-family: var(--font-d); font-weight: 700; color: var(--white);
+      font-size: 1.05rem; margin-bottom: 8px;
+    }
+    .cta-card p { color: var(--blue-200); font-size: .85rem; margin-bottom: 20px; line-height: 1.6; }
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #25D366; color: var(--white);
+      padding: 12px 24px; border-radius: 50px;
+      font-weight: 700; font-size: .88rem; font-family: var(--font-d);
+      transition: var(--transition); width: 100%; justify-content: center;
+    }
+    .btn-wa:hover { background: #1ebe5c; transform: translateY(-2px); }
+
+    .nav-porto {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      margin-top: 20px;
+    }
+    .nav-porto-btn {
+      background: var(--white); border: 1.5px solid var(--gray-200);
+      border-radius: 12px; padding: 14px 12px;
+      color: var(--gray-600); font-size: .8rem; font-weight: 600;
+      cursor: pointer; transition: var(--transition); text-align: center;
+      font-family: var(--font-b); display: block;
+    }
+    .nav-porto-btn:hover { border-color: var(--blue-400); color: var(--blue-500); background: var(--blue-50); }
+    .nav-porto-btn small { display: block; color: var(--gray-400); font-weight: 400; font-size: .72rem; margin-bottom: 4px; }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(6,15,42,.95); z-index: 9999;
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox video, .lightbox img {
+      max-width: 90vw; max-height: 88vh;
+      border-radius: 12px; object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute; top: 20px; right: 24px;
+      color: rgba(255,255,255,.6); font-size: 2rem; cursor: pointer;
+      line-height: 1; transition: var(--transition);
+    }
+    .lightbox-close:hover { color: var(--white); }
+
+    /* ── FOOTER ── */
+    .footer-mini {
+      background: var(--blue-900); text-align: center;
+      padding: 28px; color: var(--gray-400); font-size: .82rem;
+    }
+    .footer-mini a { color: var(--blue-300); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .page-wrap { grid-template-columns: 1fr; gap: 32px; }
+      .sidebar { position: static; }
+      .hero-overlay { padding: 32px 28px; }
+      .reels-grid { grid-template-columns: repeat(3,1fr); }
+    }
+    @media (max-width: 600px) {
+      .hero-banner { height: 320px; }
+      .hero-title { font-size: 1.6rem; }
+      .reels-grid { grid-template-columns: repeat(2,1fr); }
+      .results-grid { grid-template-columns: 1fr 1fr; }
+      .page-wrap { padding: 32px 20px; }
+      .navbar { padding: 0 20px; }
+    }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<header class="navbar">
+  <a href="index.html#portofolio" class="nav-back">← Kembali ke Portofolio</a>
+  <div class="nav-brand">Pronexus <em>PMI</em></div>
+</header>
+
+<!-- ── HERO BANNER ── -->
+<!-- GANTI: ganti src dengan foto/thumbnail terbaik dari proyek konten kamu -->
+<div class="hero-banner">
+  <img src="video pendek BTS.jpg" alt="Konten Reels Fashion" id="heroBg"/>
+  <div class="hero-overlay">
+    <div class="hero-tag">🎬 Pembuatan Konten</div>
+    <!-- GANTI: judul proyek kamu -->
+    <h1 class="hero-title">Seri Reels & Konten<br/>Brand Fashion Lokal</h1>
+    <div class="hero-meta">
+      <!-- GANTI: tanggal, platform, lokasi -->
+      <div class="meta-item"><span>📅</span> Mei 2025</div>
+      <div class="meta-item"><span>🏷️</span> TikTok & Instagram Reels</div>
+      <div class="meta-item"><span>📍</span> Jakarta, Indonesia</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── KONTEN UTAMA ── -->
+<div class="page-wrap">
+
+  <!-- KOLOM KIRI -->
+  <div class="main-col">
+
+    <!-- GRID REELS -->
+    <div class="reveal">
+      <div class="section-label">Hasil Video Reels</div>
+      <div class="reels-grid">
+
+        <!-- GANTI: ganti src video/gambar dengan file reels kamu (format 9:16) -->
+        <!-- Kalau pakai video: <video src="reels1.mp4" ...> -->
+        <!-- Kalau pakai thumbnail foto: <img src="foto-reels1.jpg" ...> -->
+
+        <div class="reel-item" onclick="openLightbox('video pendek BTS.jpg', 'img')">
+          <img src="video pendek BTS.jpg" alt="Reels 1"/>
+          <div class="reel-play">▶</div>
+          <div class="reel-label">Lookbook Koleksi Baru</div>
+        </div>
+
+        <div class="reel-item" onclick="openLightbox('video pendek BTS.jpg', 'img')">
+          <img src="video pendek BTS.jpg" alt="Reels 2"/>
+          <div class="reel-play">▶</div>
+          <div class="reel-label">OOTD Styling Tips</div>
+        </div>
+
+        <div class="reel-item" onclick="openLightbox('video pendek BTS.jpg', 'img')">
+          <img src="video pendek BTS.jpg" alt="Reels 3"/>
+          <div class="reel-play">▶</div>
+          <div class="reel-label">Behind The Scene</div>
+        </div>
+
+        <div class="reel-item" onclick="openLightbox('video pendek BTS.jpg', 'img')">
+          <img src="video pendek BTS.jpg" alt="Reels 4"/>
+          <div class="reel-play">▶</div>
+          <div class="reel-label">Flash Sale Promo</div>
+        </div>
+
+        <div class="reel-item" onclick="openLightbox('video pendek BTS.jpg', 'img')">
+          <img src="video pendek BTS.jpg" alt="Reels 5"/>
+          <div class="reel-play">▶</div>
+          <div class="reel-label">Testimonial Pelanggan</div>
+        </div>
+
+        <div class="reel-item" onclick="openLightbox('video pendek BTS.jpg', 'img')">
+          <img src="video pendek BTS.jpg" alt="Reels 6"/>
+          <div class="reel-play">▶</div>
+          <div class="reel-label">Brand Story</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- VIDEO HIGHLIGHT -->
+    <div class="reveal">
+      <div class="section-label">Video Highlight</div>
+      <div class="video-wrap">
+        <div class="video-label">🎬 Highlight Konten</div>
+        <!-- GANTI: src dengan file video highlight kamu -->
+        <video controls poster="video pendek BTS.jpg">
+          <source src="video pendek BTS.mp4" type="video/mp4"/>
+          Browser kamu tidak mendukung video.
+        </video>
+      </div>
+    </div>
+
+    <!-- DESKRIPSI -->
+    <div class="desc-block reveal">
+      <div class="section-label">Tentang Proyek</div>
+      <!-- GANTI: judul dan deskripsi sesuai proyek kamu -->
+      <h2>Konten yang Tidak Cuma<br/>Dilihat, Tapi Diingat</h2>
+      <p>Brand fashion lokal ini butuh konten yang bisa bersaing di feed yang penuh sesak — bukan sekadar foto produk biasa, tapi video yang punya ritme, estetika, dan pesan yang nyambung dengan audiens Gen Z mereka.</p>
+      <p>Kami mengerjakan produksi konten selama 2 hari: 1 hari shooting di lokasi dan studio mini, 1 hari penuh untuk editing, color grading, dan penambahan teks/musik. Total menghasilkan 6 video reels siap posting beserta 12 foto konten pendukung.</p>
+      <p>Semua konten disesuaikan dengan tren audio TikTok yang sedang viral saat itu, sehingga algoritma lebih mudah mendorong konten ke FYP. Hasilnya, 3 dari 6 reels berhasil masuk FYP dengan total views gabungan lebih dari 200 ribu dalam seminggu pertama.</p>
+    </div>
+
+    <!-- DAMPAK -->
+    <div class="reveal">
+      <div class="section-label">Dampak Nyata</div>
+      <div class="results-grid">
+        <!-- GANTI: angka sesuai hasil proyek kamu -->
+        <div class="result-card">
+          <span class="result-val">200K+</span>
+          <div class="result-lbl">Total Views</div>
+        </div>
+        <div class="result-card">
+          <span class="result-val">6</span>
+          <div class="result-lbl">Video Reels</div>
+        </div>
+        <div class="result-card">
+          <span class="result-val">3x</span>
+          <div class="result-lbl">Follower Naik</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROSES KERJA -->
+    <div class="reveal">
+      <div class="section-label">Proses Kerja</div>
+      <ul class="process-list">
+        <!-- GANTI: sesuaikan langkah dengan yang kamu lakukan -->
+        <li class="process-item">
+          <div class="process-num">1</div>
+          <div class="process-text">
+            <strong>Riset Konten & Tren</strong>
+            <p>Analisis tren audio, hashtag, dan format video yang sedang viral di TikTok dan Instagram sesuai niche brand.</p>
+          </div>
+        </li>
+        <li class="process-item">
+          <div class="process-num">2</div>
+          <div class="process-text">
+            <strong>Perencanaan Konten (Content Plan)</strong>
+            <p>Membuat storyboard dan content plan untuk 6 video: tema, angle, teks, musik, dan call to action setiap video.</p>
+          </div>
+        </li>
+        <li class="process-item">
+          <div class="process-num">3</div>
+          <div class="process-text">
+            <strong>Hari Produksi</strong>
+            <p>Shooting di dua lokasi: studio mini untuk close-up produk dan outdoor untuk lifestyle shot yang natural.</p>
+          </div>
+        </li>
+        <li class="process-item">
+          <div class="process-num">4</div>
+          <div class="process-text">
+            <strong>Editing & Color Grading</strong>
+            <p>Editing video dengan pacing dinamis, color grading konsisten sesuai identitas brand, penambahan musik dan teks.</p>
+          </div>
+        </li>
+        <li class="process-item">
+          <div class="process-num">5</div>
+          <div class="process-text">
+            <strong>Serah Terima & Jadwal Posting</strong>
+            <p>Pengiriman file final beserta rekomendasi waktu posting optimal dan caption yang sudah disiapkan.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="info-card reveal">
+      <h4>Info Proyek</h4>
+      <!-- GANTI: isi info sesuai proyek kamu -->
+      <div class="info-row">
+        <span class="info-key">Klien</span>
+        <span class="info-val">Brand Fashion Lokal</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Industri</span>
+        <span class="info-val">Fashion & Lifestyle</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Layanan</span>
+        <span class="info-val">Pembuatan Konten</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Durasi</span>
+        <span class="info-val">2 Hari Produksi</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Tahun</span>
+        <span class="info-val">2025</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Platform</span>
+        <span class="info-val">TikTok, Instagram</span>
+      </div>
+      <div class="tag-list">
+        <!-- GANTI: tag sesuai proyek kamu -->
+        <span class="tag">Video Reels</span>
+        <span class="tag">TikTok</span>
+        <span class="tag">Fashion</span>
+        <span class="tag">Editing</span>
+        <span class="tag">Color Grading</span>
+        <span class="tag">Konten Viral</span>
+      </div>
+    </div>
+
+    <div class="cta-card reveal">
+      <h4>Mau konten yang masuk FYP?</h4>
+      <p>Konsultasikan strategi konten brand kamu dengan kami. Gratis!</p>
+      <!-- GANTI: nomor WA kamu -->
+      <a href="https://wa.me/6283197546680?text=Halo%20Pronexus%20PMI%2C%20saya%20tertarik%20dengan%20layanan%20Pembuatan%20Konten" class="btn-wa" target="_blank">
+        💬 Chat via WhatsApp
+      </a>
+    </div>
+
+    <div class="nav-porto reveal">
+      <!-- GANTI: href ke file portofolio lain -->
+      <a href="portofolio-detail.html" class="nav-porto-btn">
+        <small>← Sebelumnya</small>
+        Foto Produk
+      </a>
+      <a href="porto-branding.html" class="nav-porto-btn">
+        <small>Berikutnya →</small>
+        Branding Startup
+      </a>
+    </div>
+
+  </aside>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer-mini">
+  <p>© 2025 <a href="index.html">Pronexus PMI</a> · Semua hak dilindungi.</p>
+</footer>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-close" onclick="closeLightbox()">✕</div>
+  <div id="lightboxContent"></div>
+</div>
+
+<script>
+  function openLightbox(src, type) {
+    const content = document.getElementById('lightboxContent');
+    content.innerHTML = type === 'video'
+      ? `<video src="${src}" controls autoplay style="max-width:90vw;max-height:88vh;border-radius:12px"></video>`
+      : `<img src="${src}" style="max-width:90vw;max-height:88vh;border-radius:12px;object-fit:contain"/>`;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lightboxContent').innerHTML = '';
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
