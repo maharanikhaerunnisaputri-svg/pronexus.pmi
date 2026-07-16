@@ -186,3 +186,67 @@ const sectionObserver = new IntersectionObserver(
 );
 
 sections.forEach(s => sectionObserver.observe(s));
+
+// ── Angka statistik hero: animasi hitung naik saat terlihat ──
+const statNumbers = document.querySelectorAll('.stat-n[data-count]');
+
+function animateCount(el) {
+  const target = parseInt(el.dataset.count, 10);
+  const duration = 1400;
+  const start = performance.now();
+
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(eased * target);
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCount(entry.target);
+      statObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.4 });
+
+statNumbers.forEach(el => statObserver.observe(el));
+
+// ── Slider testimoni ──────────────────────────────────────
+const testiTrack = document.getElementById('testiTrack');
+if (testiTrack) {
+  const slides   = testiTrack.querySelectorAll('.testi-slide');
+  const dotsWrap = document.getElementById('testiDots');
+  const prevBtn  = document.getElementById('testiPrev');
+  const nextBtn  = document.getElementById('testiNext');
+  let current = 0;
+  let autoTimer;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Testimoni ${i + 1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = dotsWrap.querySelectorAll('.testi-dot');
+
+  function goTo(index) {
+    current = (index + slides.length) % slides.length;
+    testiTrack.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    restartAuto();
+  }
+
+  function restartAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => goTo(current + 1), 6000);
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+  restartAuto();
+}

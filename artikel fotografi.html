@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>5 Tips Fotografi Produk yang Meningkatkan Penjualan E-Commerce — Pronexus PMI</title>
+  <meta name="description" content="Panduan berbasis data tentang cara foto produk yang baik meningkatkan konversi, mengurangi retur, dan mendorong penjualan e-commerce."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue-900: #060f2a;
+      --blue-800: #0a1f4e;
+      --blue-700: #0d2f63;
+      --blue-600: #1a4480;
+      --blue-500: #1e5baa;
+      --blue-400: #2d6ecf;
+      --blue-300: #4592e6;
+      --blue-200: #7ab8f5;
+      --blue-100: #c8e0fb;
+      --blue-50:  #eef5ff;
+      --accent:   #3a87e0;
+      --accent-2: #00c6ff;
+      --white:    #ffffff;
+      --gray-50:  #f7f9fc;
+      --gray-100: #eef1f7;
+      --gray-200: #d8dfe8;
+      --gray-400: #8a9ab5;
+      --gray-600: #4a5568;
+      --gray-800: #1a2233;
+      --font-d: 'Poppins', sans-serif;
+      --font-b: 'DM Sans', sans-serif;
+      --radius: 16px;
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); background: var(--white); color: var(--gray-800); line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; height: 68px;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--gray-100); z-index: 100;
+      display: flex; align-items: center; padding: 0 32px; gap: 16px;
+    }
+    .nav-back {
+      display: flex; align-items: center; gap: 8px; color: var(--gray-600);
+      font-size: .88rem; font-weight: 500; padding: 8px 16px; border-radius: 50px;
+      border: 1.5px solid var(--gray-200); transition: var(--transition);
+    }
+    .nav-back:hover { border-color: var(--blue-400); color: var(--blue-500); background: var(--blue-50); }
+    .nav-brand { font-family: var(--font-d); font-weight: 700; font-size: 1rem; color: var(--blue-800); margin-left: auto; }
+    .nav-brand em { font-style: normal; color: var(--blue-400); }
+
+    /* HERO */
+    .hero-banner {
+      margin-top: 68px; height: 440px; position: relative; overflow: hidden; background: var(--blue-900);
+    }
+    .hero-banner img { width: 100%; height: 100%; object-fit: cover; opacity: .5; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(6,15,42,.94) 0%, rgba(6,15,42,.35) 65%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 48px 56px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+      color: var(--blue-100); font-size: .75rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; padding: 6px 16px; border-radius: 50px;
+      margin-bottom: 16px; width: fit-content; backdrop-filter: blur(8px);
+    }
+    .hero-title {
+      font-family: var(--font-d); font-size: clamp(1.7rem,4vw,2.7rem); font-weight: 800;
+      color: var(--white); line-height: 1.2; max-width: 760px; margin-bottom: 16px;
+    }
+    .hero-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+    .meta-item { display: flex; align-items: center; gap: 7px; color: var(--blue-200); font-size: .82rem; }
+
+    /* LAYOUT */
+    .page-wrap {
+      max-width: 1100px; margin: 0 auto; padding: 56px 32px;
+      display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: start;
+    }
+    .section-label {
+      font-family: var(--font-d); font-size: .72rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--blue-400); margin-bottom: 14px;
+    }
+    .lead {
+      font-size: 1.08rem; color: var(--gray-600); margin-bottom: 36px;
+      padding-bottom: 32px; border-bottom: 1px solid var(--gray-100);
+    }
+    .lead strong { color: var(--blue-800); }
+
+    /* STAT GRID (data-driven proof) */
+    .stat-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 44px;
+    }
+    .stat-card {
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+      border-radius: 14px; padding: 22px 16px; text-align: center;
+    }
+    .stat-card .val {
+      font-family: var(--font-d); font-size: 1.7rem; font-weight: 800; color: var(--white);
+      display: block; margin-bottom: 4px; line-height: 1;
+    }
+    .stat-card .lbl { color: var(--blue-200); font-size: .76rem; line-height: 1.4; }
+    .stat-source { font-size: .74rem; color: var(--gray-400); text-align: right; margin-top: -30px; margin-bottom: 44px; }
+
+    /* TIPS */
+    .tip {
+      display: flex; gap: 20px; margin-bottom: 36px; padding-bottom: 36px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .tip:last-of-type { border-bottom: none; }
+    .tip-num {
+      flex-shrink: 0; width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--blue-500), var(--blue-400));
+      color: var(--white); font-family: var(--font-d); font-weight: 800; font-size: 1.1rem;
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    }
+    .tip-body h3 {
+      font-family: var(--font-d); font-size: 1.15rem; font-weight: 700; color: var(--blue-800);
+      margin-bottom: 8px;
+    }
+    .tip-body p { color: var(--gray-600); font-size: .95rem; margin-bottom: 10px; }
+    .tip-body .tip-data {
+      display: inline-block; background: var(--blue-50); color: var(--blue-500);
+      font-size: .8rem; font-weight: 600; padding: 6px 12px; border-radius: 8px;
+      border: 1px solid var(--blue-100);
+    }
+
+    /* IMAGE FIGURE */
+    .figure { border-radius: var(--radius); overflow: hidden; margin: 8px 0 44px; background: var(--gray-100); }
+    .figure img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .figure-caption { padding: 12px 4px 0; font-size: .82rem; color: var(--gray-400); }
+
+    /* CHECKLIST */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 44px; }
+    .checklist li {
+      display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px;
+      background: var(--gray-50); border-radius: 12px; border: 1px solid var(--gray-100);
+      font-size: .92rem; color: var(--gray-600);
+    }
+    .checklist li::before { content: '✓'; color: var(--blue-400); font-weight: 700; flex-shrink: 0; }
+
+    /* SOURCES */
+    .sources {
+      background: var(--gray-50); border-radius: 14px; padding: 22px 24px; margin-bottom: 20px;
+    }
+    .sources h4 { font-family: var(--font-d); font-size: .9rem; color: var(--blue-800); margin-bottom: 10px; }
+    .sources ul { padding-left: 18px; color: var(--gray-600); font-size: .82rem; line-height: 1.9; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+    .info-card {
+      background: var(--white); border: 1.5px solid var(--gray-100); border-radius: var(--radius);
+      padding: 26px; box-shadow: 0 4px 20px rgba(13,47,99,.07); margin-bottom: 20px;
+    }
+    .info-card h4 {
+      font-family: var(--font-d); font-weight: 700; font-size: .95rem; color: var(--blue-800);
+      margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--gray-100);
+    }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .toc-list a {
+      font-size: .85rem; color: var(--gray-600); transition: var(--transition);
+      display: block; padding: 4px 0;
+    }
+    .toc-list a:hover { color: var(--blue-500); }
+    .cta-card {
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-500));
+      border-radius: var(--radius); padding: 26px; text-align: center;
+    }
+    .cta-card h4 { font-family: var(--font-d); font-weight: 700; color: var(--white); font-size: 1rem; margin-bottom: 8px; }
+    .cta-card p { color: var(--blue-200); font-size: .82rem; margin-bottom: 18px; }
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: var(--white);
+      padding: 12px 22px; border-radius: 50px; font-weight: 700; font-size: .85rem;
+      font-family: var(--font-d); width: 100%; justify-content: center; transition: var(--transition);
+    }
+    .btn-wa:hover { background: #1ebe5c; transform: translateY(-2px); }
+
+    .nav-related { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 40px; }
+    .nav-related-btn {
+      background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: 12px;
+      padding: 16px 14px; color: var(--gray-600); font-size: .82rem; font-weight: 600;
+      transition: var(--transition); text-align: center;
+    }
+    .nav-related-btn:hover { border-color: var(--blue-400); color: var(--blue-500); background: var(--blue-50); }
+    .nav-related-btn small { display: block; color: var(--gray-400); font-weight: 400; font-size: .72rem; margin-bottom: 4px; }
+
+    .footer-mini { background: var(--blue-900); text-align: center; padding: 28px; color: var(--gray-400); font-size: .82rem; }
+    .footer-mini a { color: var(--blue-300); }
+
+    @media (max-width: 900px) {
+      .page-wrap { grid-template-columns: 1fr; gap: 32px; }
+      .sidebar { position: static; }
+      .hero-overlay { padding: 32px 28px; }
+    }
+    @media (max-width: 600px) {
+      .hero-banner { height: 320px; }
+      .hero-title { font-size: 1.5rem; }
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+      .page-wrap { padding: 32px 20px; }
+      .navbar { padding: 0 20px; }
+      .tip { flex-direction: column; }
+    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html#artikel" class="nav-back">← Kembali ke Artikel</a>
+  <div class="nav-brand">Pronexus <em>PMI</em></div>
+</header>
+
+<div class="hero-banner">
+  <img src="video pendek BTS.jpg" alt="Sesi pemotretan produk"/>
+  <div class="hero-overlay">
+    <div class="hero-tag">📸 Fotografi</div>
+    <h1 class="hero-title">5 Tips Fotografi Produk yang Meningkatkan Penjualan E-Commerce</h1>
+    <div class="hero-meta">
+      <div class="meta-item">📅 Diperbarui 2026</div>
+      <div class="meta-item">⏱️ 7 menit baca</div>
+      <div class="meta-item">🏷️ E-Commerce</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <div class="main-col">
+
+    <p class="lead reveal">
+      Sebelum menghabiskan anggaran untuk iklan, pastikan foto produk Anda sudah bekerja maksimal.
+      <strong>Riset industri secara konsisten menunjukkan bahwa kualitas foto adalah salah satu faktor
+      dengan pengaruh terbesar terhadap keputusan beli online</strong> bahkan sering lebih berpengaruh
+      dibanding harga maupun ulasan. Berikut lima langkah berbasis data yang bisa langsung Anda terapkan.
+    </p>
+
+    <div class="stat-grid reveal">
+      <div class="stat-card"><span class="val">~94%</span><div class="lbl">Kenaikan konversi pada foto resolusi tinggi vs. foto kualitas rendah</div></div>
+      <div class="stat-card"><span class="val">71%</span><div class="lbl">Konsumen pernah retur karena produk tak sesuai foto (Salsify, 2025)</div></div>
+      <div class="stat-card"><span class="val">67%</span><div class="lbl">Pembeli menilai foto sebelum membaca deskripsi produk sama sekali</div></div>
+    </div>
+    <p class="stat-source">Sumber lengkap di bagian bawah artikel.</p>
+
+    <div class="figure reveal">
+      <img src="contoh foto produk.jpg" alt="Contoh setup foto produk dengan pencahayaan studio"/>
+      <p class="figure-caption">Setup pencahayaan sederhana sudah cukup untuk hasil yang jauh lebih menjual dibanding foto seadanya.</p>
+    </div>
+
+    <div id="tip-1" class="tip reveal">
+      <div class="tip-num">01</div>
+      <div class="tip-body">
+        <h3>Gunakan resolusi tinggi & pencahayaan konsisten</h3>
+        <p>Foto beresolusi rendah atau gelap adalah alasan paling umum calon pembeli meninggalkan halaman
+        produk tanpa membeli. Pastikan foto minimal 1500px pada sisi terpanjang agar tetap tajam saat
+        fitur zoom digunakan, dan gunakan sumber cahaya yang konsisten di semua foto dalam satu katalog
+        supaya warna produk terlihat akurat dan tidak berubah-ubah antar foto.</p>
+        <span class="tip-data">Data: foto resolusi tinggi tercatat menaikkan konversi hingga puluhan persen dibanding foto buram/gelap</span>
+      </div>
+    </div>
+
+    <div id="tip-2" class="tip reveal">
+      <div class="tip-num">02</div>
+      <div class="tip-body">
+        <h3>Tampilkan lebih dari satu sudut pandang</h3>
+        <p>Karena pembeli online tidak bisa memegang langsung produknya, mereka mengandalkan foto untuk
+        "meraba" produk secara visual. Sediakan minimal 4–6 foto per produk: tampak depan, belakang,
+        detail close-up bahan/tekstur, dan satu foto dalam konteks penggunaan nyata. Untuk produk dengan
+        pertimbangan lebih tinggi seperti furnitur atau elektronik, 7–9 foto memberikan hasil yang lebih baik lagi.</p>
+        <span class="tip-data">Data: menambah jumlah foto secara bertahap terbukti meningkatkan peluang konversi per foto tambahan</span>
+      </div>
+    </div>
+
+    <div id="tip-3" class="tip reveal">
+      <div class="tip-num">03</div>
+      <div class="tip-body">
+        <h3>Jaga akurasi warna, skala, dan tekstur</h3>
+        <p>Sebagian besar retur produk terjadi bukan karena kualitas barang buruk, melainkan karena
+        tampilannya berbeda dari foto — baik dari sisi warna, ukuran, maupun bahan. Sertakan objek
+        pembanding untuk menunjukkan skala (misalnya produk dipakai di tangan atau tubuh model), dan
+        hindari koreksi warna berlebihan yang membuat produk asli terasa mengecewakan saat diterima.</p>
+        <span class="tip-data">Data: mayoritas retur bermula dari kesenjangan visual antara foto dan produk asli</span>
+      </div>
+    </div>
+
+    <div class="figure reveal">
+      <img src="Fotografi Baut.JPG" alt="Detail close-up produk"/>
+      <p class="figure-caption">Detail close-up membantu pembeli menilai kualitas bahan sebelum membeli — mengurangi keraguan sekaligus potensi retur.</p>
+    </div>
+
+    <div id="tip-4" class="tip reveal">
+      <div class="tip-num">04</div>
+      <div class="tip-body">
+        <h3>Padukan foto studio dengan foto gaya hidup</h3>
+        <p>Foto latar putih yang bersih penting untuk kejelasan produk, tapi foto gaya hidup — produk
+        digunakan dalam konteks sehari-hari — membantu calon pembeli membayangkan produk itu dalam
+        hidup mereka sendiri. Kombinasi keduanya, dibanding hanya mengandalkan satu gaya saja, terbukti
+        memberi hasil konversi yang lebih tinggi secara konsisten di berbagai kategori produk.</p>
+        <span class="tip-data">Data: kombinasi foto studio + gaya hidup rata-rata memberi kenaikan konversi sekitar 30%</span>
+      </div>
+    </div>
+
+    <div id="tip-5" class="tip reveal">
+      <div class="tip-num">05</div>
+      <div class="tip-body">
+        <h3>Optimalkan ukuran file untuk mobile</h3>
+        <p>Mayoritas trafik e-commerce kini datang dari perangkat mobile, jadi foto yang indah tapi
+        lambat dimuat justru merugikan. Gunakan format modern seperti WebP, jaga ukuran file tetap
+        ringkas tanpa mengorbankan detail, dan uji kecepatan muat halaman produk secara berkala —
+        terutama untuk halaman dengan galeri foto yang panjang.</p>
+        <span class="tip-data">Data: mayoritas trafik e-commerce saat ini berasal dari perangkat mobile</span>
+      </div>
+    </div>
+
+    <div class="section-label reveal" style="margin-top: 8px;">Ringkasan Cepat</div>
+    <ul class="checklist reveal">
+      <li>Foto minimal 1500px pada sisi terpanjang, pencahayaan konsisten di seluruh katalog</li>
+      <li>4–9 foto per produk tergantung kompleksitas, termasuk detail close-up</li>
+      <li>Warna dan skala foto merepresentasikan produk asli seakurat mungkin</li>
+      <li>Kombinasikan foto studio dengan foto gaya hidup/konteks penggunaan</li>
+      <li>Kompres file untuk kecepatan muat di perangkat mobile</li>
+    </ul>
+
+    <div class="sources reveal">
+      <h4>Sumber data</h4>
+      <ul>
+        <li>Salsify Consumer Research Report, 2025 — perilaku dan preferensi belanja online</li>
+        <li>Baymard Institute — studi eye-tracking perilaku belanja e-commerce</li>
+        <li>GrabOn & ElectroIQ — kompilasi statistik fotografi produk e-commerce, 2025</li>
+        <li>Shopify & BigCommerce — laporan performa toko dan konversi produk</li>
+      </ul>
+    </div>
+
+    <div class="nav-related reveal">
+      <a href="index.html#artikel" class="nav-related-btn"><small>← Kembali</small>Semua Artikel</a>
+      <a href="artikel meta.html" class="nav-related-btn"><small>Lihat →</small>Portofolio Fotografi</a>
+    </div>
+
+  </div>
+
+  <aside class="sidebar">
+    <div class="info-card reveal">
+      <h4>Isi Artikel</h4>
+      <ul class="toc-list">
+        <li><a href="#tip-1">01. Resolusi & pencahayaan</a></li>
+        <li><a href="#tip-2">02. Banyak sudut pandang</a></li>
+        <li><a href="#tip-3">03. Akurasi warna & skala</a></li>
+        <li><a href="#tip-4">04. Studio + gaya hidup</a></li>
+        <li><a href="#tip-5">05. Optimasi untuk mobile</a></li>
+      </ul>
+    </div>
+    <div class="cta-card reveal">
+      <h4>Perlu foto produk profesional?</h4>
+      <p>Tim kami siap membantu, dari sesi pemotretan hingga retouching. Konsultasi gratis!</p>
+      <a href="https://wa.me/6281234567890?text=Halo%20Pronexus%20PMI%2C%20saya%20tertarik%20dengan%20layanan%20Fotografi%20Produk" class="btn-wa" target="_blank">💬 Chat via WhatsApp</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer-mini">
+  <p>© 2026 <a href="index.html">Pronexus PMI</a> · Semua hak dilindungi.</p>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
